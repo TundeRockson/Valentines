@@ -132,6 +132,11 @@
 <body>
   <canvas id="confettiCanvas"></canvas>
 
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="Hobo Johnson and The Lovemakers_ NPR Music Tiny Desk Concert.mp3" type="audio/mpeg">
+  </audio>
+
   <main class="card">
     <!-- ANIMAL WITH HEART -->
     <img
@@ -191,6 +196,19 @@
     const zone = document.getElementById("zone");
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
+
+    /* ---------- BACKGROUND MUSIC (PLAY ON FIRST CLICK) ---------- */
+    const bgMusic = document.getElementById("bgMusic");
+
+    document.addEventListener(
+      "click",
+      () => {
+        bgMusic.volume = 0.6; // adjust if you want softer/louder
+        bgMusic.play().catch(() => {});
+      },
+      { once: true }
+    );
+
     const result = document.getElementById("result");
     const hint = document.getElementById("hint");
     const stats = document.getElementById("stats");
